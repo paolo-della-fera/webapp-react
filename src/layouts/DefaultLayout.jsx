@@ -1,18 +1,24 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/AppHeader"
-import Footer from "../components/AppFooter"
+import AppHeader from "../components/AppHeader";
+import AppFooter from "../components/AppFooter";
+
+export default function DefaultLayout() {
 
 
-const DefaultLayout = () => {
+
     return (
+
         <>
-            <Header />
-            <main>
-                <Outlet />
-            </main>
-            <Footer />
+            <div className="d-flex flex-column min-vh-100">
+
+                <AppHeader />
+                <main className="flex-grow-1">
+                    <Outlet />
+                </main>
+                <AppFooter />
+
+            </div>
         </>
+
     );
 }
-
-export default DefaultLayout;
