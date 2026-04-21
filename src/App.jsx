@@ -3,8 +3,14 @@ import DefaultLayout from './layouts/DefaultLayout';
 import MovieHome from './pages/MovieHome';
 import MovieReviews from './pages/MovieReviews';
 
+
 function App() {
+
+
   return (
+
+    
+    // Router dell'app
     <BrowserRouter>
       <Routes>
         <Route element={<DefaultLayout />}>
@@ -13,6 +19,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
   );
 }
 

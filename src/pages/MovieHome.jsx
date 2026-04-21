@@ -4,6 +4,8 @@ import MovieCard from '../components/MovieCard';
 export default function MovieHome() {
   const [movies, setMovies] = useState([]);
 
+
+  // Chiamata API per ottenere la lista dei film salvata nel mio database
   useEffect(() => {
     fetch('http://localhost:3010/movies')
       .then(res => res.json())
@@ -15,9 +17,11 @@ export default function MovieHome() {
 
     <>
 
+      {/* Lista Film */}
       <div className="container">
 
         <div className="row">
+
           {
             movies.map(movie => (
               <div className="col-12 col-md-4 g-4" key={movie.id}>
@@ -25,6 +29,7 @@ export default function MovieHome() {
               </div>
             ))
           }
+
         </div>
 
       </div>

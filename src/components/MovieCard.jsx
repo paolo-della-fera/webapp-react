@@ -6,6 +6,7 @@ export default function MovieCard({ movie }) {
     return (
         <>
 
+            {/* Card del Film */}
             <div className="card h-100">
                 <img src={`http://localhost:3010/image/${movie.image}`} className="card-img-top" alt={movie.title} />
 

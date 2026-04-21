@@ -8,6 +8,7 @@ export default function AppHeader() {
 
     <>
 
+      {/* Navbar dell'app */}
       <nav className="navbar navbar-dark bg-dark">
 
         <div className="container-fluid">
