@@ -3,3 +3,13 @@
 body {
   font-family: 'Geologica Variable', sans-serif;
 }
+
+
+.card {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}
