@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import MovieDetail from '../components/MovieDetails';
 import ReviewList from '../components/ReviewList';
+import ReviewForm from '../components/ReviewForm';
 
 
 export default function MovieReviews() {
@@ -19,8 +20,7 @@ export default function MovieReviews() {
 
     if (!movie) return <div>Caricamento...</div>;
 
-
-
+    
     return (
 
         <>
@@ -31,6 +31,11 @@ export default function MovieReviews() {
 
             {/* Lista recensioni */}
             <ReviewList reviews={movie.reviews} />
+
+
+            {/* Form per lasciare una recenzione */}
+            <ReviewForm /> 
+
 
         </>
 
