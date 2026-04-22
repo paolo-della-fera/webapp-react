@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom';
 export default function AppHeader() {
 
 
-
   return (
 
     <>
 
-      {/* Navbar dell'app */}
       <nav className="navbar navbar-dark bg-dark">
 
-        <div className="container-fluid">
+        <div className="container">
           <Link className="navbar-brand" to="/">🎬 Movie App</Link>
-          <Link className="btn btn-outline-light" to="/">Home</Link>
+          <div>
+            <Link className="btn btn-outline-light me-2" to="/">Home</Link>
+            <Link className="btn btn-outline-light" to="/admin">Admin</Link>
+          </div>
         </div>
 
       </nav>

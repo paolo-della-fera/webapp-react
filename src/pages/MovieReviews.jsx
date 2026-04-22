@@ -32,6 +32,7 @@ export default function MovieReviews() {
             {/* Lista recensioni */}
             <ReviewList reviews={movie.reviews} />
 
+            <hr className='mt-5'/>
 
             {/* Form per lasciare una recenzione */}
             <ReviewForm /> 
