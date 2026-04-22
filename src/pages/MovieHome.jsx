@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import MovieCard from '../components/MovieCard';
 
+
+import MovieList from '../components/MovieList'
+
+
 export default function MovieHome() {
   const [movies, setMovies] = useState([]);
 
@@ -13,26 +17,13 @@ export default function MovieHome() {
       .catch(err => console.error(err));
   }, []);
 
+
   return (
 
     <>
 
       {/* Lista Film */}
-      <div className="container">
-
-        <div className="row">
-
-          {
-            movies.map(movie => (
-              <div className="col-12 col-md-4 g-4" key={movie.id}>
-                <MovieCard movie={movie} />
-              </div>
-            ))
-          }
-
-        </div>
-
-      </div>
+      <MovieList movies={movies} />
 
     </>
 
