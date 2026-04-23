@@ -1,21 +1,34 @@
 import { useState } from 'react';
 
-export default function ReviewForm() {
+export default function ReviewForm({ movieId, onSubmit }) {
     const [formData, setFormData] = useState({
         name: '',
         vote: '',
         text: ''
     });
 
+
     // Funzione per gestire i cambiamenti nei campi del form
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     }
 
+
     // Funzione per gestire l'invio del form
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormData({ name: '', vote: '', text: '' });
+
+        fetch(`http://localhost:3010/movies/${movieId}/reviews`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(() => {
+                onSubmit(formData);
+                setFormData({ name: '', vote: '', text: '' });
+            })
+            .catch(err => console.error(err));
     }
 
 
@@ -27,7 +40,6 @@ export default function ReviewForm() {
                 <h3>Lascia una recensione</h3>
 
                 <form onSubmit={handleSubmit}>
-
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Nome</label>
                         <input type="text" className="form-control" id="name" value={formData.name} onChange={handleChange} placeholder="Il tuo nome" />
@@ -51,7 +63,6 @@ export default function ReviewForm() {
                     </div>
 
                     <button type="submit" className="btn btn-primary">Invia recensione</button>
-
                 </form>
 
             </div>

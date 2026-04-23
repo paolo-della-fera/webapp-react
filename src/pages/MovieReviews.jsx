@@ -10,17 +10,27 @@ import ReviewForm from '../components/ReviewForm';
 export default function MovieReviews() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:3010/movies/${id}`)
             .then(res => res.json())
-            .then(data => setMovie(data.film))
+            .then(data => {
+                setMovie(data.film);
+                setReviews(data.film.reviews);
+            })
             .catch(err => console.error('Errore fetch:', err));
     }, [id]);
 
+
+    // Aggiunge la nuova recensione in fondo alla lista
+    const handleNewReview = (newReview) => {
+        setReviews([...reviews, newReview]);
+    }
+
     if (!movie) return <div>Caricamento...</div>;
 
-    
+
     return (
 
         <>
@@ -30,13 +40,14 @@ export default function MovieReviews() {
 
 
             {/* Lista recensioni */}
-            <ReviewList reviews={movie.reviews} />
+            <ReviewList reviews={reviews} />
 
-            <hr className='mt-5'/>
 
-            {/* Form per lasciare una recenzione */}
-            <ReviewForm /> 
+            <hr className='mt-5' />
 
+
+            {/* Form per lasciare una recensione */}
+            <ReviewForm movieId={id} onSubmit={handleNewReview} />
 
         </>
 
