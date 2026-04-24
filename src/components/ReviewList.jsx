@@ -17,7 +17,7 @@ export default function ReviewList({ reviews }) {
 
             <div className="container">
 
-                <ul className="list-group mt-4">
+                <ul className="list-group mt-4 ">
 
                     {
                         reviews.map(review => (

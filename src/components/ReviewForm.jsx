@@ -36,7 +36,7 @@ export default function ReviewForm({ movieId, onSubmit }) {
 
         <>
 
-            <div className="container mt-4">
+            <div className="container mt-4 bg-white rounded p-4 bg-opacity-75">
                 <h3>Lascia una recensione</h3>
 
                 <form onSubmit={handleSubmit}>
@@ -59,7 +59,7 @@ export default function ReviewForm({ movieId, onSubmit }) {
 
                     <div className="mb-3">
                         <label htmlFor="text" className="form-label">Recensione</label>
-                        <textarea className="form-control" id="text" rows="4" value={formData.text} onChange={handleChange} placeholder="Scrivi la tua recensione..."></textarea>
+                        <textarea className="form-control" id="text" rows="1" value={formData.text} onChange={handleChange} placeholder="Scrivi la tua recensione..."></textarea>
                     </div>
 
                     <button type="submit" className="btn btn-primary">Invia recensione</button>

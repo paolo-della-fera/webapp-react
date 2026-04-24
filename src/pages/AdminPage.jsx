@@ -17,7 +17,7 @@ export default function AdminPage() {
     return (
         <>
 
-            <div className="container py-4">
+            <div className="container py-4 bg-white rounded bg-opacity-75 mt-4">
                 <h2>Admin - Lista Film</h2>
 
 
